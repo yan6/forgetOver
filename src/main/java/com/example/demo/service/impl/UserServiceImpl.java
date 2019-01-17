@@ -10,7 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
+
+    @Autowired(required = false)
     private UserMapper userMapper;
 
     @Override

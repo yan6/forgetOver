@@ -1,0 +1,3 @@
+log.appender=console
+log.level=DEBUG
+

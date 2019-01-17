@@ -9,20 +9,20 @@ import javax.jms.Topic;
 
 @Component
 public class ActiveMqMessageSender {
-    @Autowired
-    private Queue queue;
-
-    @Autowired
-    private Topic topic;
-
-    @Autowired
-    private JmsMessagingTemplate jmsTemplate;
-
-    public void sendByQueue(String message) {
-        this.jmsTemplate.convertAndSend(queue, message);
-    }
-    public void sendByTopic(String message) {
-        this.jmsTemplate.convertAndSend(topic, message);
-    }
+//    @Autowired
+//    private Queue queue;
+//
+//    @Autowired
+//    private Topic topic;
+//
+//    @Autowired
+//    private JmsMessagingTemplate jmsTemplate;
+//
+//    public void sendByQueue(String message) {
+//        this.jmsTemplate.convertAndSend(queue, message);
+//    }
+//    public void sendByTopic(String message) {
+//        this.jmsTemplate.convertAndSend(topic, message);
+//    }
 
 }
