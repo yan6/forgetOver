@@ -23,6 +23,8 @@
 		<org.projectlombok.lombok.version>1.16.4</org.projectlombok.lombok.version>
 		<org.apache.commons.version>3.2.1</org.apache.commons.version>
 		<org.apache.commons.math3.version>3.3</org.apache.commons.math3.version>
+		<org.apache.commons.commons-codec.version>1.10</org.apache.commons.commons-codec.version>
+		<com.wandoujia.commons.version>1.0.76</com.wandoujia.commons.version>
 	</properties>
 
 	<dependencies>
@@ -35,6 +37,12 @@
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.instagram4j</groupId>
+			<artifactId>instagram4j</artifactId>
+			<version>develop-40333b6</version>
 		</dependency>
 
 		<!-- cache -->
@@ -122,6 +130,25 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>${org.apache.commons.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>${org.apache.commons.commons-codec.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.wandoujia.commons</groupId>
+			<artifactId>wandoujia-commons-httputils</artifactId>
+			<version>${com.wandoujia.commons.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+			<scope>compile</scope>
 		</dependency>
 
 	</dependencies>

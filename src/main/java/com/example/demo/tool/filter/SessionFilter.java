@@ -1,10 +1,15 @@
 package com.example.demo.tool.filter;
 
+import org.springframework.util.DigestUtils;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
 
 public class SessionFilter implements Filter {
 
@@ -27,7 +32,8 @@ public class SessionFilter implements Filter {
         HttpSession session = request.getSession(false);
         String uri = request.getRequestURI();
 
-        System.out.println("filter url:" + uri);
+        generateSign(request);
+
         //是否需要过滤
         boolean needFilter = isNeedFilter(uri);
 
@@ -50,6 +56,46 @@ public class SessionFilter implements Filter {
                 }
             }
         }
+
+
+    }
+
+    private void generateSign(HttpServletRequest request) {
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        String _newSign = test2(parameterMap);
+        String newSign = request.getParameter("newSign");
+        System.out.println("generateSign:newSign:" + newSign + ",_newSign:" + _newSign);
+    }
+
+    private String test2(Map<String, String[]> params) {
+        StringBuilder sb = new StringBuilder();
+        // 拼接url中的参数
+        if (params != null) {
+            ArrayList<String> keyList = new ArrayList<>(params.keySet());
+            Collections.sort(keyList); //key正序
+            for (int i = 0; i < keyList.size(); i++) {
+                String k = keyList.get(i);
+                if ("newSign".equals(k)) {
+                    // 此参数不加加密
+                    continue;
+                }
+                String[] v = params.get(k);
+                //空值不传递，不参与签名组串
+                if (null != v && !"".equals(v[0])) {
+                    sb.append(v[0]);
+                }
+            }
+        }
+
+        // 拼接KEY
+        sb = sb.append("0jdiu5k7");
+        String sign = null;
+        try {
+            //加密,结果转换为小写字符
+            sign = DigestUtils.md5DigestAsHex(sb.toString().getBytes()).toLowerCase();
+        } catch (Exception e) {
+        }
+        return sign;
     }
 
     @Override

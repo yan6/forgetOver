@@ -25,11 +25,10 @@ public class LogAop {
     @Before("excudeService()||excude()")
     public void before(JoinPoint joinPoint) {
         //通过JoinPoint 获取通知的签名信息，如目标方法名，目标方法参数信息等
-        System.err.println("切面before执行了。。。");
     }
 
     @AfterReturning(value = "excudeService()||excude()", returning = "obj")
     public void after(JoinPoint joinPoint, Object obj) {
-        System.out.println("after return user" + obj);
+
     }
 }

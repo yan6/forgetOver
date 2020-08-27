@@ -1,13 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.core.project.ChapterListInfo;
 import com.example.demo.domain.bean.User;
 import com.example.demo.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -47,5 +45,17 @@ public class UserController {
     public String test(@RequestParam(value = "id", required = false, defaultValue = "1") int name) {
         User user = userService.getUserById(name);
         return user.getName();
+    }
+
+    @RequestMapping(value = "/getChapterListInfo", produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public ChapterListInfo getChapterListInfo() {
+        return userService.getChapterListInfo();
+    }
+
+    @PostMapping(value = "/testSign")
+    @ResponseBody
+    public boolean testSign() {
+        return true;
     }
 }
