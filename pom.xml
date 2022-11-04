@@ -21,7 +21,7 @@
 		<java.version>1.8</java.version>
 		<com.mchange.c3p0.version>0.9.5.2</com.mchange.c3p0.version>
 		<org.projectlombok.lombok.version>1.16.4</org.projectlombok.lombok.version>
-		<org.apache.commons.version>3.2.1</org.apache.commons.version>
+		<org.apache.commons.version>3.2.2</org.apache.commons.version>
 		<org.apache.commons.math3.version>3.3</org.apache.commons.math3.version>
 		<org.apache.commons.commons-codec.version>1.10</org.apache.commons.commons-codec.version>
 		<com.wandoujia.commons.version>1.0.76</com.wandoujia.commons.version>
